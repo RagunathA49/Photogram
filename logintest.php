@@ -15,6 +15,7 @@ if(Session::get('is_loggedin'))
     $username = Session::get('session_username');
     $userobj=new User($username);
     print("Welcome back ".$userobj->getFirstname().$userobj->getLastname());
+    $userobj->setBio("Making new things....");
     print("<br>".$userobj->getBio());
 }else
 {

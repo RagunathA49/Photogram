@@ -16,7 +16,6 @@ class User
         }elseif(substr($name,0,3)=="set"){
             return $this->_set_data($property,$arguments[0]);
         }
-        // s
     }
     public static function signup($user, $pass, $email, $phone)
     {
@@ -91,7 +90,7 @@ class User
         if(!$this->conn) {
             $this->conn = Database::getConnection();
         }
-        $sql="UPDATE 'users' SET `$var`=`$data`WHERE `id` = $this->id";
+        $sql="UPDATE users SET $var='$data' WHERE id=$this->id";
         $result=$this->conn->query($sql);
         if($this->conn->query($sql)){
             return true;
